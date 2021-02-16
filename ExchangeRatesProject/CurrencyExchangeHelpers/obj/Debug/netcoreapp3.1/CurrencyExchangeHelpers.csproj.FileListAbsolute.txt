@@ -1,0 +1,9 @@
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\bin\Debug\netcoreapp3.1\CurrencyExchangeHelpers.deps.json
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\bin\Debug\netcoreapp3.1\CurrencyExchangeHelpers.dll
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\bin\Debug\netcoreapp3.1\CurrencyExchangeHelpers.pdb
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\obj\Debug\netcoreapp3.1\CurrencyExchangeHelpers.AssemblyInfoInputs.cache
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\obj\Debug\netcoreapp3.1\CurrencyExchangeHelpers.AssemblyInfo.cs
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\obj\Debug\netcoreapp3.1\CurrencyExchangeHelpers.csproj.CoreCompileInputs.cache
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\obj\Debug\netcoreapp3.1\CurrencyExchangeHelpers.dll
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\obj\Debug\netcoreapp3.1\CurrencyExchangeHelpers.pdb
+C:\Users\shaib\source\repos\ExchangeRatesProject\CurrencyExchangeHelpers\obj\Debug\netcoreapp3.1\CurrencyExchangeHelpers.csprojAssemblyReference.cache

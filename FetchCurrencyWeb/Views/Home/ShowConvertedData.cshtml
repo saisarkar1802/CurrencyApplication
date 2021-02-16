@@ -1,0 +1,51 @@
+﻿@model FetchCurrencyWeb.Models.AppModel
+
+@{
+    ViewData["Title"] = "ShowConvertedData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ShowConvertedData</h1>
+
+<div>
+    <h4>AppModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.baseCurrency)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.baseCurrency)
+        </dd>
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.baseAmount)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.baseAmount)
+        </dd>
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.toCurrency)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.toCurrency)
+        </dd>
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.convertedAmount)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.convertedAmount)
+        </dd>
+        @if (Model.date > DateTime.MinValue)
+        {
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.date)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.date)
+            </dd>
+        }
+    </dl>
+</div>
+<div>    
+    <a asp-action="LatestConverter">Back</a>
+</div>

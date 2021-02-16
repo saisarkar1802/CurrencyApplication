@@ -1,0 +1,49 @@
+﻿@model FetchCurrencyWeb.Models.AppModel
+
+@{
+    ViewData["Title"] = "HistoricalConverter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>HistoricalConverter</h1>
+
+<h4>AppModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="HistoricalConverter">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="baseCurrency" class="control-label"></label>
+                <input asp-for="baseCurrency" class="form-control" />
+                <span asp-validation-for="baseCurrency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="baseAmount" class="control-label"></label>
+                <input asp-for="baseAmount" class="form-control" />
+                <span asp-validation-for="baseAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="toCurrency" class="control-label"></label>
+                <input asp-for="toCurrency" class="form-control" />
+                <span asp-validation-for="toCurrency" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <label asp-for="date" class="control-label"></label>
+                <input asp-for="date" class="form-control" />
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

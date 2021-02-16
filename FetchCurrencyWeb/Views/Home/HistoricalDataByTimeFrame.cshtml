@@ -1,0 +1,133 @@
+﻿@model FetchCurrencyWeb.Models.HistoricalTimeFrameModel
+
+@{
+    ViewData["Title"] = "HistoricalDataByTimeFrame";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>HistoricalDataByTimeFrame</h1>
+
+<h4>HistoricalTimeFrameModel</h4>
+<hr />
+@using(Html.BeginForm())
+{
+    <div class="table">
+        <div class="row form-group col-md-12" style="display:inline-block">
+            <div class="col-md-3" style="display:inline-block">
+                <label asp-for="toCurrency" class="control-label"></label>
+            </div>
+            <div class="col-md-4" style="display:inline-block; padding-left:10%;">
+                <label asp-for="startDate" class="control-label"></label>
+            </div>
+            <div class="col-md-4" style="display:inline-block;padding-left:10%;">
+                <label asp-for="endDate" class="control-label"></label>
+            </div>
+        </div>
+        <div class="row form-group col-md-12">
+            <div class="col-md-3" style="display:inline-block">
+                <input asp-for="toCurrency" id="cur" class="form-control" style="display:inline-block" />
+            </div>
+            <div class="col-md-4" style="padding-left:10%; display:inline-block">
+                <input asp-for="startDate" id="start" class="form-control" style="display:inline-block" />
+            </div>
+            <div class="col-md-4" style="padding-left:10%; display:inline-block">
+                <input asp-for="endDate" id="end" class="form-control" style="display:inline-block" />
+            </div>
+        </div>
+        <div class="row form-group col-md-12">
+            <div class="col-md-3" style="display:inline-block">
+                <span asp-validation-for="toCurrency" id="errorCur" class="text-danger"></span>
+            </div>
+            <div class="col-md-4" style="padding-left:10%; display:inline-block">
+                <span asp-validation-for="startDate" id="errorStart" class="text-danger"></span>
+            </div>
+            <div class="col-md-4" style="padding-left:10%; display:inline-block">
+                <span asp-validation-for="endDate" id="errorEnd" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-12" style="text-align:center">
+                <input type="submit" value="Search" id="submit" class="btn btn-primary" />
+                <a asp-action="Index">Back to List</a>
+        </div>  
+    </div>
+}
+<div id="_partial">
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            This chart shows how data labels can be added to the data series. This
+            can increase readability and comprehension for small datasets.
+        </p>
+    </figure>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+    $('#submit').on('click', function (e) {        
+        e.preventDefault();
+        var toCur = document.getElementById("cur").value;
+        var start = document.getElementById("start").value;
+        var end = document.getElementById("end").value;
+        if (toCur == "" || toCur.length != 3) {
+            var msgCur = "<span style='color:red'>Currency value needs to be of 3 characters</span>";
+            $("#errorCur").html(msgCur);
+        }
+        if (start == "") {
+            var msgstart = "<span style='color:red'>Start Date is required</span>";
+            $("#errorStart").html(msgstart);
+        }
+        if (end == "") {
+            var msgend = "<span style='color:red'>Start Date is required</span>";
+            $("#errorEnd").html(msgend);
+        }
+        $.getJSON("/Home/GetData", $('form').serialize(), function (data) {
+            var XAxis = [];
+            var YAxis = [];
+            for (var i = 0; i < data.length; i++) {
+                XAxis.push(data[i].date);
+                YAxis.push(data[i].rate);
+            }
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Historical Rate Data'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: XAxis
+                },
+                yAxis: {
+                    title: {
+                        text: 'ExchangeRate'
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                series: [{
+                    name: 'Trend',
+                    data: YAxis
+                }]
+            });
+        });
+    });
+    
+</script>
+}
+

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Fpqs0TzZJ5jS2EBCSwc2XK5nELA5EEIc1QwlPQ9PMGkFWKiA+PHlHBK63NY/qkwgcvSTegXZ09XCowaAFAKS9g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shaib\\source\\repos\\Arvato\\ExchangeRatesProject\\CurrencyExchangeHelpers\\CurrencyExchangeHelpers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shaib\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
