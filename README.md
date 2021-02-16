@@ -1,4 +1,4 @@
-# Arvato_Shaibal_Sarkar
+# Shaibal_Sarkar
 
 The repository contains two solutions and one database scripts directory:
 a) FetchCurrencyWeb: ASP .Net Core MVC Web application.
